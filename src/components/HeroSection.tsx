@@ -1,5 +1,7 @@
 import { SYMPOSIUM, GOOGLE_FORM_LINK } from "@/data/symposiumConfig";
 import { Calendar, MapPin, ExternalLink } from "lucide-react";
+import collegeLogo from "@/assets/college-logo.png";
+import cseLogo from "@/assets/cse-logo.png";
 
 const HeroSection = () => {
   return (
@@ -9,6 +11,12 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/5 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1s" }} />
 
       <div className="container mx-auto px-4 text-center relative z-10">
+        {/* Logos */}
+        <div className="flex items-center justify-center gap-6 md:gap-10 mb-8">
+          <img src={collegeLogo} alt="AAMEC College Logo" className="h-16 md:h-24 object-contain" />
+          <img src={cseLogo} alt="AAMEC CSE Department Logo" className="h-14 md:h-20 object-contain" />
+        </div>
+
         {/* Department badge */}
         <div className="inline-flex items-center gap-2 glass-card rounded-full px-5 py-2 mb-8">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
