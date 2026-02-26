@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { SYMPOSIUM } from "@/data/symposiumConfig";
 import { Menu, X } from "lucide-react";
+import collegeLogo from "@/assets/college-logo.png";
+import cseLogo from "@/assets/cse-logo.png";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -26,11 +28,25 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#home" className="font-mono text-lg font-bold neon-text">
+        <img src={collegeLogo} alt="College Logo" className="h-12 md:h-14 object-contain" />
+        
+        <a href="#home" className="font-mono text-lg font-bold neon-text hidden md:block">
           {SYMPOSIUM.name}
         </a>
 
-        {/* Desktop */}
+        <div className="flex items-center gap-4">
+          <img src={cseLogo} alt="CSE Department Logo" className="h-10 md:h-14 object-contain" />
+          
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden text-foreground"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
@@ -42,14 +58,6 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
       {/* Mobile menu */}
