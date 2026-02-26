@@ -27,42 +27,65 @@ const Navbar = () => {
         scrolled ? "glass-card border-b" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <img src={collegeLogo} alt="College Logo" className="h-12 md:h-14 object-contain" />
-        
-        <a href="#home" className="font-mono text-lg font-bold neon-text hidden md:block">
-          {SYMPOSIUM.name}
-        </a>
+      <div className="container mx-auto px-4 py-3">
 
-        <div className="flex items-center gap-4">
-          <img src={cseLogo} alt="CSE Department Logo" className="h-10 md:h-14 object-contain" />
-          
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-foreground"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <div className="flex items-center justify-between">
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+          {/* LEFT LOGO */}
+          <img
+            src={collegeLogo}
+            alt="College Logo"
+            className="h-8 sm:h-10 md:h-14 object-contain flex-shrink-0"
+          />
+
+          {/* CENTER TITLE (TAKES REMAINING SPACE) */}
+          <div className="flex-1 text-center px-2">
             <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              href="#home"
+              className="font-mono font-bold neon-text
+                         text-xs sm:text-sm md:text-lg
+                         break-words"
             >
-              {item.label}
+              {SYMPOSIUM.name}
             </a>
-          ))}
+          </div>
+
+          {/* RIGHT SECTION */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-8 mr-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+
+            <img
+              src={cseLogo}
+              alt="CSE Logo"
+              className="h-7 sm:h-9 md:h-12 object-contain"
+            />
+
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden"
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden glass-card border-t px-4 py-4 space-y-3">
+        <div className="md:hidden glass-card border-t px-6 py-5 space-y-4 text-center">
           {navItems.map((item) => (
             <a
               key={item.href}
