@@ -58,7 +58,7 @@ const HeroSection = () => {
         </a>
 
         <p className="text-xs text-muted-foreground mt-4">
-          Redirects to Google Form for registration
+           registration
         </p>
       </div>
 

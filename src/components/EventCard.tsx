@@ -44,7 +44,7 @@ const EventCard = ({ event }: EventCardProps) => {
 
       {/* Organizers */}
       <div className="border-t border-border pt-4 space-y-2">
-        <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Organizerser</h4>
+        <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Organizer</h4>
         {event.organizers.map((org, i) => (
           <div key={i} className="flex items-center justify-between text-xs">
             <span className="text-foreground font-medium">{org.name}</span>
